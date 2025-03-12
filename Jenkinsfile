@@ -6,6 +6,14 @@ pipeline {
         maven 'maven3'
     }
     stages {
+        stage("cloning git repo") {
+            steps {
+                sh "git clone https://github.com/Tchoumi-stack/demo2.git"
+                    echo "git repo cloned"
+                }
+            }
+        }
+    stages {
         stage("building jar") {
             steps {
                 sh "mvn package"
