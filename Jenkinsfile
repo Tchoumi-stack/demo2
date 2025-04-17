@@ -31,7 +31,6 @@ pipeline {
             steps {
                 script { 
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', passwordVariable: 'passwd', usernameVariable: 'username')]) {
-    // some block {
                     sh "echo $passwd | docker login -u $username  --password-stdn"    
                     sh "docker push minelva/myapp:1.0"
                     echo "image deployed to dockerhub"
